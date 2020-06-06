@@ -1,9 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var docs = @ViewBag.Docs;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document2</title>
+    <title>Document view</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
@@ -24,12 +28,11 @@
         <div class="right_panel">
             <div class="title">Документы</div>
             <div class="content">
-                <ul>
-                    <a href="/docviewer"><li>Документ 1</li></a>
-                    <a href="/docviewer"><li>Документ 2</li></a>
-                    <a href="/docviewer"><li>Документ 3</li></a>
-                    <a href="/docviewer"><li>Документ 4</li></a>
-                    <a href="/docviewer"><li>Документ 5</li></a>
+                <ul class="docs">
+                    @foreach (Doc doc in docs)
+                    {
+                        <a href="/docviewer?id=@(doc.Id)"><li>Должностная инструкция @doc.FileName</li></a>
+                    }
                 </ul>
             </div>
         </div>

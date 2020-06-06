@@ -2,6 +2,7 @@
 using cp2020.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Diagnostics;
 
 namespace cp2020.Controllers
@@ -17,8 +18,11 @@ namespace cp2020.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index(Guid id)
         {
+            ViewBag.Doc = _repository.GetDocById(id);
+
             return View();
         }
 

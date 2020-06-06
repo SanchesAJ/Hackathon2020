@@ -3,6 +3,7 @@ using cp2020.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.Linq;
 
 namespace cp2020.Controllers
 {
@@ -19,6 +20,8 @@ namespace cp2020.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Docs = _repository.Doc_FindAll();
+
             return View();
         }
 

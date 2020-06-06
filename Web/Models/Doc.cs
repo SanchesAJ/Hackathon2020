@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace cp2020.Models
 {
@@ -10,8 +11,10 @@ namespace cp2020.Models
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Текст документа
+        /// Имя файла
         /// </summary>
-        public string Text { get; set; }
+        public string FileName { get; set; }
+
+        public List<DocSection> Sections { get; set; }
     }
 }

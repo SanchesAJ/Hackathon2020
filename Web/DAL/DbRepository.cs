@@ -2,6 +2,7 @@
 using LiteDB;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace cp2020.DAL
 {
@@ -26,6 +27,11 @@ namespace cp2020.DAL
         public Guid Doc_Insert(Doc doc)
         {
             return _liteDb.GetCollection<Doc>().Insert(doc);
+        }
+
+        public Doc GetDocById(Guid id)
+        {
+            return _liteDb.GetCollection<Doc>().FindById(id);
         }
     }
 }
